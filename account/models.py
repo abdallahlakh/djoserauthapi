@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
-# Custom User Manager
+
 class UserManager(BaseUserManager):
-    def create_user(self, email, name, is_admin=False, password=None):
+    def create_user(self, email, name,is_customer,is_lawyer, is_admin=False, password=None):
         """
         Creates and saves a User with the given email, name and password.
         """
@@ -11,13 +11,16 @@ class UserManager(BaseUserManager):
         user = self.model(
             email=self.normalize_email(email),
             name=name,
-            is_admin=is_admin
+            is_admin=is_admin,
+            is_customer=is_customer,
+            is_lawyer=is_lawyer,
         )
         user.set_password(password)
         user.save(using=self._db)
         return user
     
-    def create_superuser(self, email, name, is_admin=True, password=None):
+
+    def create_superuser(self, email, name,is_customer=False,is_lawyer=False, is_admin=True, password=None):
         """
         Creates and saves a Superuser with the given email, name and password.
         """
@@ -25,7 +28,9 @@ class UserManager(BaseUserManager):
             email=email,
             password=password,
             name=name,
-            is_admin=is_admin
+            is_admin=is_admin,
+            is_customer=is_customer,
+            is_lawyer=is_lawyer
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -41,13 +46,15 @@ class User(AbstractBaseUser):
     name = models.CharField(max_length=255)
     is_active=models.BooleanField(default=True)
     is_admin=models.BooleanField(default=False)
+    is_customer=models.BooleanField(default=False)
+    is_lawyer=models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS=['name', 'is_admin']
+    REQUIRED_FIELDS=['name', 'is_admin','is_customer','is_lawyer']
 
     def __str__(self):
         return self.email
@@ -70,3 +77,7 @@ class User(AbstractBaseUser):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+    
+
+
+

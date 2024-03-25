@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'djoser',
     "corsheaders",
     "account",
+    'mouhami_api',
 ]
 
 MIDDLEWARE = [
@@ -173,7 +174,7 @@ DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL': 'password-reset/{uid}/{token}',
     'SET_PASSWORD_RETYPE': True,
     'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND': True,
-    'TOKEN_MODEL': None,       # To Delete User Must Set it to None
+    'TOKEN_MODEL': None, 
     'SERIALIZERS':{
         'user_create': 'account.serializers.UserCreateSerializer',
         'user': 'account.serializers.UserCreateSerializer',
@@ -194,3 +195,11 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
+
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+CORS_ALLOW_CREDENTIALS = True
