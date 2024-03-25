@@ -186,10 +186,11 @@ DJOSER = {
 
 
 CORS_ALLOWED_ORIGINS = [
-    "https://djoserauthapi-1.onrender.com",
+    "https://lawyer-frontend-alpha.vercel.app/Registration"
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    "https://djoserauthapi-1.onrender.com",
+      "https://lawyer-frontend-alpha.vercel.app/Registration"
+
 ]
 CORS_ALLOW_CREDENTIALS = True
