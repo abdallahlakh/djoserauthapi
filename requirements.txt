@@ -5,6 +5,7 @@ charset-normalizer==3.1.0
 cryptography==40.0.2
 defusedxml==0.7.1
 distlib==0.3.6
+dj-database-url==2.1.0
 Django==4.2.1
 django-cors-headers==3.14.0
 django-dotenv==1.4.2
@@ -14,8 +15,10 @@ djangorestframework-simplejwt==5.2.2
 djoser==2.2.0
 ecdsa==0.18.0
 filelock==3.10.7
+gunicorn==21.2.0
 idna==3.4
 oauthlib==3.2.2
+packaging==24.0
 platformdirs==3.2.0
 psycopg2-binary==2.9.9
 pyasn1==0.5.1
@@ -31,6 +34,7 @@ rsa==4.9
 six==1.16.0
 social-auth-core==4.4.2
 sqlparse==0.4.4
+typing_extensions==4.10.0
 tzdata==2023.3
 urllib3==2.0.2
 virtualenv==20.21.0
