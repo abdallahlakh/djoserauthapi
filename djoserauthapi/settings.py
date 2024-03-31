@@ -186,11 +186,11 @@ DJOSER = {
 
 
 CORS_ALLOWED_ORIGINS = [
-    "https://algerianlawyer.vercel.app"
+    "https://lawyersystemapp.vercel.app"
 ]
 
 CORS_ORIGIN_WHITELIST = [
-      "https://algerianlawyer.vercel.app"
+      "https://lawyersystemapp.vercel.app"
 
 ]
 CORS_ALLOW_CREDENTIALS = True
